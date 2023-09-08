@@ -1,1 +1,7 @@
 cwai
+__pycache__
+.chainlit
+model
+data
+.env
+chainlit.md

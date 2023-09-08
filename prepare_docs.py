@@ -37,7 +37,7 @@ def process_md_files_to_jsonl(directory_path, output_file):
 
 if __name__ == "__main__":
     # Specify the directory containing the .md files and the output .jsonl file
-    input_directory = 'doc_source'
+    input_directory = 'source_documents'
     output_file = 'docs.jsonl'
 
     process_md_files_to_jsonl(input_directory, output_file)
