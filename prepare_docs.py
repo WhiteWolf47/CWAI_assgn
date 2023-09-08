@@ -5,6 +5,15 @@ import re
 
 # Function to extract and clean text content from a Markdown file
 def extract_text_from_md(file_path):
+    """
+    Extracts and cleans text content from a Markdown file.
+
+    Args:
+        file_path (str): The path to the Markdown file.
+
+    Returns:
+        str: The cleaned text content.
+    """
     md = MarkdownIt()
     with open(file_path, 'r', encoding='utf-8') as md_file:
         md_content = md_file.read()
@@ -18,6 +27,13 @@ def extract_text_from_md(file_path):
 
 # Function to process all .md files in a directory and write to a JSONL file
 def process_md_files_to_jsonl(directory_path, output_file):
+    """
+    Processes all .md files in a directory and writes to a JSONL file.
+
+    Args:
+        directory_path (str): The path to the directory containing the .md files.
+        output_file (str): The path to the output JSONL file.
+    """
     jsonl_data = []
     for filename in os.listdir(directory_path):
         if filename.endswith('.md'):

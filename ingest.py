@@ -31,24 +31,23 @@ def create_vector_database():
     and finally persists the embeddings into a Chroma vector database.
 
     """
-
-    # Initialize loaders for different file types
-    """ pdf_loader = DirectoryLoader(DATA_DIR, glob="**/*.pdf", loader_cls=PyPDFLoader)
+    '''# Initialize loaders for different file types
+    pdf_loader = DirectoryLoader("data/", glob="**/*.pdf", loader_cls=PyPDFLoader)
     markdown_loader = DirectoryLoader(
-        DATA_DIR, glob="**/*.md", loader_cls=UnstructuredMarkdownLoader
+        "data/", glob="**/*.md", loader_cls=UnstructuredMarkdownLoader
     )
-    text_loader = DirectoryLoader(DATA_DIR, glob="**/*.txt", loader_cls=TextLoader)
+    text_loader = DirectoryLoader("data/", glob="**/*.txt", loader_cls=TextLoader)
 
     all_loaders = [pdf_loader, markdown_loader, text_loader]
 
     # Load documents from all loaders
     loaded_documents = []
     for loader in all_loaders:
-        loaded_documents.extend(loader.load()) """
-
-    text_loader = DirectoryLoader(DATA_DIR, glob="**/*.txt", loader_cls=TextLoader)
-    loaded_documents = text_loader.load()
-
+        loaded_documents.extend(loader.load())'''
+    markdown_loader = DirectoryLoader(
+        "data/", glob="**/*.md", loader_cls=UnstructuredMarkdownLoader
+    )
+    loaded_documents = markdown_loader.load()
     # Split loaded documents into chunks
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
     chunked_documents = text_splitter.split_documents(loaded_documents)
